@@ -14,7 +14,7 @@ A Nautilus extension to add "Open in VSCodium" in menu.
 ### Installing
 
 Before installing please make sure you've the package 
-```python-nautilus ``` installed.
+```python-nautilus``` installed.
 
 Run the install script. 
 > $ chmod +x install.sh  
