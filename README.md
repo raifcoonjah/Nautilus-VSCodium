@@ -1,8 +1,8 @@
 # OpenInVSCodium
-A Nautilus extension to add "Open in VSCodium" in menu. 
-
 ### OpenInVSCodium is a fork of: OpenInVSCode
+---
 
+A Nautilus extension to add "Open in VSCodium" in menu. 
 
 <!-- ### Usage Example
 
