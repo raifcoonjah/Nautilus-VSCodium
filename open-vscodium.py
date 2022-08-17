@@ -13,22 +13,22 @@ gi.require_version('Nautilus', '3.0')
 from gi.repository import Nautilus, GObject
 
 
-class OpenVSCodeExtension(Nautilus.MenuProvider, GObject.GObject):
+class OpenVSCodiumExtension(Nautilus.MenuProvider, GObject.GObject):
     def __init__(self):
         pass
         # self.client = GConf.Client.get_default()
         
-    def _open_vscode(self, file):
+    def _open_vscodium(self, file):
         filename = unquote(file.get_uri()[7:])
 
         os.chdir(filename)
-        os.system('code .')
+        os.system('codium .')
         
     def menu_activate_cb(self, menu, file):
-        self._open_vscode(file)
+        self._open_vscodium(file)
         
     def menu_background_activate_cb(self, menu, file): 
-        self._open_vscode(file)
+        self._open_vscodium(file)
        
     def get_file_items(self, window, files):
         if len(files) != 1:
@@ -38,15 +38,15 @@ class OpenVSCodeExtension(Nautilus.MenuProvider, GObject.GObject):
         if not file.is_directory() or file.get_uri_scheme() != 'file':
             return
        
-        item = Nautilus.MenuItem(name='NautilusPython::openvscode_file_item',
-                                 label='Open in VSCode' ,
-                                 tip='Open %s in VSCode' % file.get_name())
+        item = Nautilus.MenuItem(name='NautilusPython::openvscodium_file_item',
+                                 label='Open in VSCodium' ,
+                                 tip='Open %s in VSCodium' % file.get_name())
         item.connect('activate', self.menu_activate_cb, file)
         return item,
 
     def get_background_items(self, window, file):
-        item = Nautilus.MenuItem(name='NautilusPython::openvscode_file_item2',
-                                 label='Open in VSCode' ,
-                                 tip='Open %s in VSCode' % file.get_name())
+        item = Nautilus.MenuItem(name='NautilusPython::openvscodium_file_item2',
+                                 label='Open in VSCodium' ,
+                                 tip='Open %s in VSCodium' % file.get_name())
         item.connect('activate', self.menu_background_activate_cb, file)
         return item,
